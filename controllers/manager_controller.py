@@ -10,7 +10,7 @@ class manager_control:
             return False
 
     def validateManager(idNumber):
-        # travese through data base
+        # travel through data base
         # if match with idNumber
         # return true
         # otherwise return false
