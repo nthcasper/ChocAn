@@ -1,0 +1,26 @@
+{
+	"name": "Member2" ,
+	"ID": "222444222" ,
+	"address": "224 22nd St" ,
+	"city": "Two Town" ,
+	"state": "OR" ,
+	"zipcode": "222222" ,
+	"services": [
+		{
+			"date": "1-1-2023" ,
+			"provider_name": "Provider2" ,
+			"service_name": "Physcial Therapy" 
+		} ,
+		{
+			"date": "1-4-2023" ,
+			"provider_name": "Provider2" ,
+			"service_name": "Appointment with Dietician"
+		} ,
+		{
+			"date": "1-7-2023" ,
+			"provider_name": "Provider1" ,
+			"service_name": "Physical Therapy"
+		}
+
+	]
+}
