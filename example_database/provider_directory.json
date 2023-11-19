@@ -1,0 +1,12 @@
+[
+	{
+		"code": "123456" ,
+		"name": "Physical Therapy" ,
+		"fee": "150"
+	} ,
+	{
+		"code": "555198" ,
+		"name": "Appointment with Dietician" ,
+		"fee": "45"
+	}
+]
