@@ -21,11 +21,11 @@ def endOfWeek():
 def etfReport():
     pass
 
-'''Placeholder for manager.py function'''
+'''Takes in a member id. Calls manager.py function'''
 def memberReport():
     pass
 
-'''Placeholder for manager.py function'''
+'''Takes in a provider id. Calls manager.py function'''
 def providerReport():
     pass
 
