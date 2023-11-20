@@ -1,5 +1,4 @@
 #import provider.py
-#import database.py #To gain direct access to some display functions?
 
 '''Displays the main menu'''
 def main_menu():
@@ -9,22 +8,38 @@ def main_menu():
 
 '''Displays provider directory. Must be callable anywhere????'''
 def displayProviderDirectory():
-    #Should this file have access to database.py?
-    #Should this function be called by keyboard interrupt, haha.
     print("Provider Directory!")
 
 '''This will take user input and pass it to provider.py'''
 def createServiceRecord():
-    #Should I call provider.py twice? Once for entering data, second for verification?
-    time = datetime.datetime.now()
-    dateOfService = input("date: ")
-    providerNumber = input("provider number: ")
-    memberNumber = input("member number: ")
-    serviceCode = input("code: ")
-    comments = input("comments: ")
+    memberid = input()
+    if checkmemberid(memberid) == False:
+        return False
+    
+    userDict = {
+        time = datetime.datetime.now()
+        dateOfService = input("date: ")
+        providerNumber = input("provider number: ")
+        memberNumber = input("member number: ")
+        serviceCode = input("code: ")
+        comments = input("comments: ")
+    }
 
-    return updateFunction(time.strftime("%m-%d-%Y %H:%M:%S"),
-                        dateOfService, providerNumber, memberNumber, serviceCode, comments)
+    fee = createRecord(userDict)
+    if fee == 0:
+        return False
+
+    userDict = {
+        time = datetime.datetime.now()
+        dateOfService = input("date: ")
+        providerNumber = input("provider number: ")
+        memberNumber = input("member number: ")
+        serviceCode = input("code: ")
+        comments = input("comments: ")
+    }
+
+    return verifyAllData(userDict)
+
 
 '''Placeholder for provider.py function'''
 def login(providerID):
