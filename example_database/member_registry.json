@@ -5,7 +5,8 @@
        "address": "113 1'th Way" ,
        "city": "Onesville" ,
        "state": "OR" ,
-       "zipcode": "11111"
+       "zipcode": "11111" ,
+			 "status": "Valid" 
      } ,
      {
        "name": "Member2" ,
@@ -13,6 +14,17 @@
        "address": "224 22nd St" ,
        "city": "Two Town" ,
        "state": "OR" ,
-       "zipcode": "22222"
+       "zipcode": "22222" ,
+			 "status": "Valid"
+     } ,
+		 {
+       "name": "Member3" ,
+       "ID": "396352333" ,
+       "address": "3blvd" ,
+       "city": "Threeeeee" ,
+       "state": "OR" ,
+       "zipcode": "33333" ,
+			 "status": "Suspended"
      }
+
 ]
