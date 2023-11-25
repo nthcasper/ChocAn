@@ -1,0 +1,20 @@
+{
+  "name": "Member1",
+  "Id": "111333111",
+  "address": "113 1'th Way",
+  "city": "Onesville",
+  "state": "OR",
+  "zipcode": "11111",
+  "services": [
+    {
+      "date": "01-01-2023",
+      "providerName": "Provider1",
+      "serviceName": "Physical Therapy"
+    },
+    {
+      "date": "01-03-2023",
+      "providerName": "Provider2",
+      "serviceName": "Appointment with Dietician"
+    }
+  ]
+}

@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class BasicData:
     def __init__(self, name, Id, address, city, state, zipcode):
         self.name = name
@@ -78,6 +81,15 @@ class ServiceData:
         self.serviceCode = serviceCode
         self.comments = comments
 
+    def getDateOfService():
+        date = input("Please type in your date of service(MM-DD-YYYY): ")
+        dateOfService = datetime.strptime(date, "%m-%d-%Y")
+        return dateOfService.strftime('%d-%m-%Y')
+
+    def getDateAndTime():
+        dateNTime = datetime.now()
+        return dateNTime.strftime(dateNTime, '%m-%d-%Y %H:%M:S')
+
     def getProviderNumber():
         while True:
             providerNumber = (input("Enter the provider number: "))
@@ -117,8 +129,8 @@ class ServiceData:
                 return comment
 
     def createServiceData(self):
-        time = datetime.datetime.now()
-        dateOfService = input("date: ")
+        time = self.getDateAndTime()
+        dateOfService = self.getDateOfService()
         providerNumber = self.getProviderNumber()
         memberNumber = self.getMemberNumber()
         serviceCode = self.getServiceCode()
