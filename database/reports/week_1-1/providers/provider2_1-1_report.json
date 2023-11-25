@@ -1,0 +1,45 @@
+{
+  "name": "Provider2",
+  "ID": "222222222",
+  "address": "222 22nd St",
+  "city": "Two Town",
+  "state": "OR",
+  "zip": "22222",
+  "services": [
+    {
+      "date": "1-3-2023",
+      "received": {
+        "date": "1-3-2023",
+        "time": "12:30:00"
+      },
+      "memberName": "Member1",
+      "memberId": "111333111",
+      "serviceCode": "555198",
+      "fee": "45"
+    },
+    {
+      "date": "1-1-2023",
+      "received": {
+        "date": "1-1-2023",
+        "time": "10:00:08"
+      },
+      "memberName": "Member2",
+      "memberId": "222444222",
+      "serviceCode": "123456",
+      "fee": "150"
+    },
+    {
+      "date": "1-4-2023",
+      "received": {
+        "date": "1-4-2023",
+        "time": "11:12:13"
+      },
+      "memberName": "Member2",
+      "memberId": "222444222",
+      "serviceCode": "555198",
+      "fee": "45"
+    }
+  ],
+  "totalConsults": "3",
+  "totalFee": "240"
+}

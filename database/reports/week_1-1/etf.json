@@ -1,0 +1,12 @@
+[
+  {
+    "providerName": "Provider1",
+    "providerID": "111111111",
+    "amountToTransfer": "300"
+  },
+  {
+    "providerName": "Provider2",
+    "providerID": "222222222",
+    "amountToTransfer": "240"
+  }
+]
