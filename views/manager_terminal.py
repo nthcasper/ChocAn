@@ -38,7 +38,7 @@ def updateMembers():
     #--Places more effort on manager.py team.--
 
     name = input("name: ")
-    number = input("name: ")
+    ID = input("name: ")
     address = input("name: ")
     city = input("name: ")
     state = input("name: ")
