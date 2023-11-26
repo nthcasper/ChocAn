@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class BasicData:
     def __init__(self, name, Id, address, city, state, zipcode):
         self.name = name
@@ -6,7 +9,39 @@ class BasicData:
         self.city = city
         self.state = state
         self.zipcode = zipcode
-    
+
+    def getName():
+        name = input("Please enter your name(less than 25 characters): ")
+        while True:
+            if len(name) > 25:
+                print("Name more than 25 characters. Try Again")
+            else:
+                return name
+
+    def getCity():
+        city = input("Please enter your city(less than 14 characters): ")
+        while True:
+            if len(city) > 14:
+                print("city more than 14 characters. Try Again")
+            else:
+                return city
+
+    def getState():
+        state = input("Please enter state initials (2 characters): ")
+        while True:
+            if len(state) > 2:
+                print("More than 2 chars entered. Try Again")
+            else:
+                return state
+
+    def getAddress():
+        address = input("Please enter your address(less than 25 characters): ")
+        while True:
+            if len(address) > 25:
+                print("address more than 25 characters. Try Again")
+            else:
+                return address
+
     def getId():
         while True:
             Id = input("Enter your 9 digit id: ")
@@ -25,16 +60,17 @@ class BasicData:
             elif len(Zipcode != 5):
                 print("The Zipcode must have exactly 5 numbers")
             else:
-                return int(Zipcode) 
-    
+                return int(Zipcode)
+
     def createBasicData(self):
-        name = input("Enter your name: ")
+        name = self.getName()
         Id = self.getId()
-        address = input("Enter your address: ")
-        city = input ("Enter your city: ")
-        state = input("Enter your state: ")
+        address = self.getAddress()
+        city = self.getCity()
+        state = self.getState()
         zipcode = self.getZipcode()
         return BasicData(name, Id, address, city, state, zipcode)
+
 
 class ServiceData:
     def __init__(self, time, dateOfService, providerNumber, memberNumber, serviceCode, comments) -> None:
@@ -44,7 +80,15 @@ class ServiceData:
         self.memberNumber = memberNumber
         self.serviceCode = serviceCode
         self.comments = comments
-        pass
+
+    def getDateOfService():
+        date = input("Please type in your date of service(MM-DD-YYYY): ")
+        dateOfService = datetime.strptime(date, "%m-%d-%Y")
+        return dateOfService.strftime('%d-%m-%Y')
+
+    def getDateAndTime():
+        dateNTime = datetime.now()
+        return dateNTime.strftime(dateNTime, '%m-%d-%Y %H:%M:S')
 
     def getProviderNumber():
         while True:
@@ -76,11 +120,19 @@ class ServiceData:
             else:
                 return int(serviceCode)
 
+    def getComment():
+        while True:
+            comment = input("Enter your comment (less than 100 characters): ")
+            if len(comment) > 100:
+                print("Too many characters. Must be below 100 ")
+            else:
+                return comment
+
     def createServiceData(self):
-        time = datetime.datetime.now()
-        dateOfService = input("date: ")
+        time = self.getDateAndTime()
+        dateOfService = self.getDateOfService()
         providerNumber = self.getProviderNumber()
         memberNumber = self.getMemberNumber()
         serviceCode = self.getServiceCode()
-        comments = input("Comments: ")
+        comments = self.getComment()
         return ServiceData(time, dateOfService, providerNumber, memberNumber, serviceCode, comments)
