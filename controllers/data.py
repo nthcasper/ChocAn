@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class BasicData:
-    def __init__(self, name, Id, address, city, state, zipcode):
+    def __init__(self, name='', Id=0, address='', city='', state='', zipcode=0):
         self.name = name
         self.Id = Id
         self.address = address
@@ -10,7 +10,7 @@ class BasicData:
         self.state = state
         self.zipcode = zipcode
 
-    def getName():
+    def getName(self):
         name = input("Please enter your name(less than 25 characters): ")
         while True:
             if len(name) > 25:
@@ -18,7 +18,7 @@ class BasicData:
             else:
                 return name
 
-    def getCity():
+    def getCity(self):
         city = input("Please enter your city(less than 14 characters): ")
         while True:
             if len(city) > 14:
@@ -26,7 +26,7 @@ class BasicData:
             else:
                 return city
 
-    def getState():
+    def getState(self):
         state = input("Please enter state initials (2 characters): ")
         while True:
             if len(state) > 2:
@@ -34,7 +34,7 @@ class BasicData:
             else:
                 return state
 
-    def getAddress():
+    def getAddress(self):
         address = input("Please enter your address(less than 25 characters): ")
         while True:
             if len(address) > 25:
@@ -42,22 +42,22 @@ class BasicData:
             else:
                 return address
 
-    def getId():
+    def getId(self):
         while True:
             Id = input("Enter your 9 digit id: ")
             if not Id.isdigit():
                 print("The id should only contain numbers")
-            elif len(Id != 9):
+            elif len(Id) != 9:
                 print("The Id must have exactly 9 numbers")
             else:
                 return int(Id)
 
-    def getZipcode():
+    def getZipcode(self):
         while True:
             Zipcode = input("Enter your Zipcode: ")
             if not Zipcode.isdigit():
                 print("The Zipcode should only contain numbers")
-            elif len(Zipcode != 5):
+            elif len(Zipcode) != 5:
                 print("The Zipcode must have exactly 5 numbers")
             else:
                 return int(Zipcode)
@@ -73,7 +73,7 @@ class BasicData:
 
 
 class ServiceData:
-    def __init__(self, time, dateOfService, providerNumber, memberNumber, serviceCode, comments) -> None:
+    def __init__(self, time='', dateOfService='', providerNumber=0, memberNumber=0, serviceCode=0, comments=''):
         self.time = time
         self.dateOfService = dateOfService
         self.providerNumber = providerNumber
@@ -81,16 +81,16 @@ class ServiceData:
         self.serviceCode = serviceCode
         self.comments = comments
 
-    def getDateOfService():
+    def getDateOfService(self):
         date = input("Please type in your date of service(MM-DD-YYYY): ")
         dateOfService = datetime.strptime(date, "%m-%d-%Y")
         return dateOfService.strftime('%d-%m-%Y')
 
-    def getDateAndTime():
+    def getDateAndTime(self):
         dateNTime = datetime.now()
         return dateNTime.strftime(dateNTime, '%m-%d-%Y %H:%M:S')
 
-    def getProviderNumber():
+    def getProviderNumber(self):
         while True:
             providerNumber = (input("Enter the provider number: "))
             if not providerNumber.isdigit():
@@ -100,7 +100,7 @@ class ServiceData:
             else:
                 return int(providerNumber)
 
-    def getMemberNumber():
+    def getMemberNumber(self):
         while True:
             memberNumber = (input("Enter the member number: "))
             if not memberNumber.isdigit():
@@ -110,7 +110,7 @@ class ServiceData:
             else:
                 return int(memberNumber)
 
-    def getServiceCode():
+    def getServiceCode(self):
         while True:
             serviceCode = (input("Enter the service code: "))
             if not serviceCode.isdigit():
@@ -120,7 +120,7 @@ class ServiceData:
             else:
                 return int(serviceCode)
 
-    def getComment():
+    def getComment(self):
         while True:
             comment = input("Enter your comment (less than 100 characters): ")
             if len(comment) > 100:
