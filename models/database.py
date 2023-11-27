@@ -18,25 +18,20 @@ memRegPath = os.path.join(
 # If pathname is not a string or dictionary is not a dict, will raise a TypeError
 # if unable to create the file, raises an IOError
 def createJSONFile(pathname, dictionary):
-    if (type(pathname) != str or type(dictionary) != dict):
-        raise TypeError
-    with open(pathname, "w") as file:
-        json.dump(dictionary, file)
-        file.close()
-    # try:
-    # 	if (type(pathname) != str or type(dictionary) != dict):
-    # 		raise TypeError
-    # 	with open(pathname, "w") as file:
-    # 		json.dump(dictionary, file)
-    # 		file.close()
-    # except IOError:
-    # 	print("ERROR: couldn't create file")
-    # 	raise
-    # except TypeError:
-    # 	print("ERROR: pathname or dictionary are invalid types")
-    # 	raise
-    # finally:
-    # 	print("bruh")
+    try:
+        if (type(pathname) != str or type(dictionary) != dict):
+            raise TypeError
+        with open(pathname, "w") as file:
+            json.dump(dictionary, file)
+            file.close()
+    except IOError:
+        print("ERROR: couldn't create file")
+        raise
+    except TypeError:
+        print("ERROR: pathname or dictionary are invalid types")
+        raise
+    finally:
+        print("bruh")
 
 
 # this function will create a file consisting of a list of JSON objects at a given path
@@ -44,27 +39,21 @@ def createJSONFile(pathname, dictionary):
 # If pathname is not a string or listOfDicts is not a list of dicts, will raise a TypeError
 # if unable to create the file, raises an IOError
 def createJSONListFile(pathname, listOfDicts):
-    # for item in listOfDicts:
-    #     if type(item) != dict:
-    #         raise TypeError
-    # with open(pathname, "w") as file:
-    #     json.dump(listOfDicts, file)
-    #     file.close()
     try:
-    	if(type(pathname) != str or type(listOfDicts) != list):
-    		raise TypeError
-    	for item in listOfDicts:
-    		if type(item) != dict:
-    			raise TypeError
-		with open(pathname, "w") as file:
-			json.dump(listOfDicts, file)
-			file.close()
-	except IOError:
-    	print("ERROR: couldn't create file")
-    	raise
+        if (type(pathname) != str or type(listOfDicts) != list):
+            raise TypeError
+        for item in listOfDicts:
+            if type(item) != dict:
+                raise TypeError
+        with open(pathname, "w") as file:
+            json.dump(listOfDicts, file)
+            file.close()
+    except IOError:
+        print("ERROR: couldn't create file")
+        raise
     except TypeError:
-    	print("ERROR: pathname or listOfDicts is invalid type")
-    	raise
+        print("ERROR: pathname or listOfDicts is invalid type")
+        raise
 
 
 # this function will return a dictionary from a JSON file located at pathname.
@@ -77,7 +66,6 @@ def getJSONDict(pathname):
             if (type(dictionary) != dict):
                 raise ValueError
             return dictionary
-
     except IOError:
         print("ERROR: file not found")
         raise
@@ -92,6 +80,7 @@ def getJSONListOfDicts(pathname):
     try:
         with open(pathname, "r") as file:
             listOfDicts = json.load(file)
+            print(type(listOfDicts))
             file.close()
             if (type(listOfDicts) != list):
                 raise ValueError
