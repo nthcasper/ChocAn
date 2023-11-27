@@ -1,7 +1,10 @@
+
 import datetime
-#import manager.py
+# import manager.py
 
 '''Displays the user options'''
+
+
 def main_menu():
     print("1. End of Week")
     print("2. Generate ETF Report")
@@ -11,31 +14,46 @@ def main_menu():
     print("6. Update Provider Registry")
     print("7. Turn Off Terminal")
 
+
 '''Calls the following three functions.'''
+
+
 def endOfWeek():
-    #Should this call an endOfWeek function or just call each report function?
-    #Depends on how the manager.py team wants to do.
+    # Should this call an endOfWeek function or just call each report function?
+    # Depends on how the manager.py team wants to do.
     pass
 
+
 '''Placeholder for manager.py function'''
+
+
 def etfReport():
     pass
 
+
 '''Placeholder for manager.py function'''
+
+
 def memberReport():
     pass
 
+
 '''Placeholder for manager.py function'''
+
+
 def providerReport():
     pass
 
+
 '''Take member info and call manager.py function.'''
+
+
 def updateMembers():
-    #Should this be split up into three functions, or let manager.py figure it out?
-        #Example: the user could enter an existing member id along with data to be changed.
-        #Example: the user could enter a new member id along with data to be added.
-        #Example: the user could enter an existed member id and empty data to delete member.
-    #--Places more effort on manager.py team.--
+    # Should this be split up into three functions, or let manager.py figure it out?
+    # Example: the user could enter an existing member id along with data to be changed.
+    # Example: the user could enter a new member id along with data to be added.
+    # Example: the user could enter an existed member id and empty data to delete member.
+    # --Places more effort on manager.py team.--
 
     name = input("name: ")
     number = input("name: ")
@@ -44,12 +62,14 @@ def updateMembers():
     state = input("name: ")
     zipcode = input("name: ")
 
-    #return memberUpdate(name, number, address, city, state, zipcode)
+    # return memberUpdate(name, number, address, city, state, zipcode)
 
 
 '''Take provider info and call manager.py function.'''
+
+
 def updateProviders():
-    #Should this be split up into three functions, or let manager.py figure it out?
+    # Should this be split up into three functions, or let manager.py figure it out?
 
     name = input("name: ")
     number = input("name: ")
@@ -58,7 +78,7 @@ def updateProviders():
     state = input("name: ")
     zipcode = input("name: ")
 
-    #return providerUpdate(name, number, address, city, state, zipcode)
+    # return providerUpdate(name, number, address, city, state, zipcode)
 
 
 if __name__ == '__main__':
@@ -79,5 +99,5 @@ if __name__ == '__main__':
             updateProviders()
         else:
             print("Invalid Choice.")
-    
+
     print("Shutting of terminal.")

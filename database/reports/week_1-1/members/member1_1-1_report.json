@@ -1,10 +1,10 @@
 {
   "name": "Member1",
-  "Id": "111333111",
+  "Id": 111333111,
   "address": "113 1'th Way",
   "city": "Onesville",
   "state": "OR",
-  "zipcode": "11111",
+  "zipcode": 11111,
   "services": [
     {
       "date": "01-01-2023",

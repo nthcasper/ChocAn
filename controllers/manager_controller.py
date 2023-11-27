@@ -1,7 +1,7 @@
 # import models.database as db
 from datetime import datetime
 from .data import *
-from models.database import addProvider
+from models.database import *
 
 
 class ManagerControl:
@@ -9,23 +9,34 @@ class ManagerControl:
         pass
 
     def makeDict(self, dataObj):
+        print(provDirPath)
         dataDict = dict(name=dataObj.name, Id=dataObj.Id, address=dataObj.address,
                         city=dataObj.city, state=dataObj.state, zipcode=dataObj.zipcode)
         return dataDict
-    def addProvider(self,providerObj):
+
+    def addProvider(self, providerObj):
         providerDict = self.makeDict(providerObj)
         addProvider(providerDict)
 
     # this obj will have things like name, number etc..
-    def addMember(self,memberObj):
+    def addMember(self, memberObj):
         # call the data base class funtion to do the ading
         return database.add(memberObj)
 
-    def editMember(memberObj):
-        return database.update(memberObj, memberId)
+    def editMember(self, memberId, memberObj):
+        memDict = getJSONListOfDicts(memRegPath)
+        for mem in memDict:
+            if (mem['Id'] == memberId):
+                mem.update(memberObj)
+        createJSONListFile(provRegPath, memDict)
 
-    def editProvider(providerObj):
-        return database.update(providerObj, providerId)
+    def editProvider(self, providerId, providerObj):
+        print(provRegPath)
+        provDict = getJSONListOfDicts(provRegPath)
+        for prov in provDict:
+            if (prov['Id'] == providerId):
+                prov.update(providerObj)
+        createJSONListFile(provRegPath, provDict)
 
     def removeProvider():
         pass

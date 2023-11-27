@@ -1,5 +1,5 @@
 from controllers.manager_controller import *
-data = BasicData()
+newObj = {'name': 'dober', 'Id': 234234234, 'address': 'lkj',
+          'city': 'lkj', 'state': 'kj', 'zipcode': 98787}
 manager = ManagerControl()
-mydata = data.createBasicData()
-manager.addProvider(mydata)
+manager.editProvider(234234234, newObj)
