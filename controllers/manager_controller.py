@@ -1,13 +1,10 @@
-import os
-import sys
-script_dir = os.path.dirname(__file__)
-mymodule_dir = os.path.join(script_dir, '..', 'models')
-sys.path.append(mymodule_dir)
+import __init__
+import models.database as db
+from data import *
+from datetime import datetime
+
 
 # import models.database as db
-from datetime import datetime
-from data import *
-from database import addProvider
 
 
 class ManagerControl:
@@ -15,23 +12,34 @@ class ManagerControl:
         pass
 
     def makeDict(self, dataObj):
+        print(db.provDirPath)
         dataDict = dict(name=dataObj.name, Id=dataObj.Id, address=dataObj.address,
                         city=dataObj.city, state=dataObj.state, zipcode=dataObj.zipcode)
         return dataDict
-    def addProvider(self,providerObj):
+
+    def addProvider(self, providerObj):
         providerDict = self.makeDict(providerObj)
-        addProvider(providerDict)
+        db.addProvider(providerDict)
 
     # this obj will have things like name, number etc..
-    def addMember(self,memberObj):
+    def addMember(self, memberObj):
         # call the data base class funtion to do the ading
         return database.add(memberObj)
 
-    def editMember(memberObj):
-        return database.update(memberObj, memberId)
+    def editMember(self, memberId, memberObj):
+        memDict = db.getJSONListOfDicts(db.memRegPath)
+        for mem in memDict:
+            if (mem['Id'] == memberId):
+                mem.update(memberObj)
+        db.createJSONListFile(db.provRegPath, memDict)
 
-    def editProvider(providerObj):
-        return database.update(providerObj, providerId)
+    def editProvider(self, providerId, providerObj):
+        print(db.provRegPath)
+        provDict = db.getJSONListOfDicts(db.provRegPath)
+        for prov in provDict:
+            if (prov['Id'] == providerId):
+                prov.update(providerObj)
+        db.createJSONListFile(db.provRegPath, provDict)
 
     def removeProvider():
         pass
