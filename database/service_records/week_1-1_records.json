@@ -5,9 +5,9 @@
       "time": "08:30:00"
     },
     "dateOfService": "1-1-2023",
-    "providerId": "111111111",
-    "memberId": "111333111",
-    "serviceCode": "123456",
+    "providerId": 111111111,
+    "memberId": 111333111,
+    "serviceCode": 123456,
     "comments": "workout A"
   },
   {
@@ -16,9 +16,9 @@
       "time": "10:00:08"
     },
     "dateOfService": "1-1-2023",
-    "providerId": "222222222",
-    "memberId": "222444222",
-    "serviceCode": "123456",
+    "providerId": 222222222,
+    "memberId": 222444222,
+    "serviceCode": 123456,
     "comments": ""
   },
   {
@@ -27,9 +27,9 @@
       "time": "12:30:00"
     },
     "dateOfService": "1-3-2023",
-    "providerId": "222222222",
-    "memberId": "111333111",
-    "serviceCode": "555198",
+    "providerId": 222222222,
+    "memberId": 111333111,
+    "serviceCode": 555198,
     "comments": "normal checkup"
   },
   {
@@ -38,9 +38,9 @@
       "time": "11:12:13"
     },
     "dateOfService": "1-4-2023",
-    "providerId": "222222222",
-    "memberId": "222444222",
-    "serviceCode": "555198",
+    "providerId": 222222222,
+    "memberId": 222444222,
+    "serviceCode": 555198,
     "comments": "new patient"
   },
   {
@@ -49,9 +49,9 @@
       "time": "15:55:48"
     },
     "dateOfService": "1-7-2023",
-    "providerId": "111111111",
-    "memberId": "222444222",
-    "serviceCode": "123456",
+    "providerId": 111111111,
+    "memberId": 222444222,
+    "serviceCode": 123456,
     "comments": "workout B"
   }
 ]

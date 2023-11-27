@@ -1,12 +1,12 @@
 [
   {
     "providerName": "Provider1",
-    "providerId": "111111111",
-    "amountToTransfer": "300"
+    "providerId": 111111111,
+    "amountToTransfer": 300
   },
   {
     "providerName": "Provider2",
-    "providerId": "222222222",
-    "amountToTransfer": "240"
+    "providerId": 222222222,
+    "amountToTransfer": 240
   }
 ]

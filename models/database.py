@@ -62,6 +62,7 @@ def getJSONDict(pathname):
     try:
         with open(pathname, "r") as file:
             dictionary = json.load(file)
+            print(type(dictionary))
             file.close()
             if (type(dictionary) != dict):
                 raise ValueError

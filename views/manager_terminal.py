@@ -82,26 +82,31 @@ def updateProviders():
     # return providerUpdate(name, number, address, city, state, zipcode)
 
 
-if __name__ == '__main__':
-    main_menu()
-    choice = int(input("Please enter choice: "))
-    while choice != 7:
-        if choice == 1:
-            endOfWeek()
-        elif choice == 2:
-            etfReport()
-        elif choice == 3:
-            memberReport()
-        elif choice == 4:
-            providerReport()
-        elif choice == 5:
-            updateMembers
-        elif choice == 6:
-            updateProviders()
-        else:
-            print("Invalid Choice.")
+# if __name__ == '__main__':
+#     main_menu()
+#     choice = int(input("Please enter choice: "))
+#     while choice != 7:
+#         if choice == 1:
+#             endOfWeek()
+#         elif choice == 2:
+#             etfReport()
+#         elif choice == 3:
+#             memberReport()
+#         elif choice == 4:
+#             providerReport()
+#         elif choice == 5:
+#             updateMembers
+#         elif choice == 6:
+#             updateProviders()
+#         else:
+#             print("Invalid Choice.")
 
-        main_menu()
-        choice = int(input("Please enter choice: "))
+#         main_menu()
+#         choice = int(input("Please enter choice: "))
 
-    print("Shutting of terminal.")
+#     print("Shutting of terminal.")
+
+info = data.BasicData()
+manager = mc.ManagerControl()
+myData = info.createBasicData()
+manager.addProvider(myData)
