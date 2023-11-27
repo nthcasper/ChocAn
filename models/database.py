@@ -44,28 +44,27 @@ def createJSONFile(pathname, dictionary):
 # If pathname is not a string or listOfDicts is not a list of dicts, will raise a TypeError
 # if unable to create the file, raises an IOError
 def createJSONListFile(pathname, listOfDicts):
-    for item in listOfDicts:
-        if type(item) != dict:
-            raise TypeError
-    with open(pathname, "w") as file:
-        json.dump(listOfDicts, file)
-        file.close()
-    # try:
-    # 	if(type(pathname) != str or type(listOfDicts) != list):
-    # 		raise TypeError
-    # 	for item in listOfDicts:
-    # 		if type(item) != dict:
-    # 			raise TypeError
+    # for item in listOfDicts:
+    #     if type(item) != dict:
+    #         raise TypeError
     # with open(pathname, "w") as file:
-    # 	json.dump(listOfDicts, file)
-    # 	file.close()
-
-    # except IOError:
-    # 	print("ERROR: couldn't create file")
-    # 	raise
-    # except TypeError:
-    # 	print("ERROR: pathname or listOfDicts is invalid type")
-    # 	raise
+    #     json.dump(listOfDicts, file)
+    #     file.close()
+    try:
+    	if(type(pathname) != str or type(listOfDicts) != list):
+    		raise TypeError
+    	for item in listOfDicts:
+    		if type(item) != dict:
+    			raise TypeError
+		with open(pathname, "w") as file:
+			json.dump(listOfDicts, file)
+			file.close()
+	except IOError:
+    	print("ERROR: couldn't create file")
+    	raise
+    except TypeError:
+    	print("ERROR: pathname or listOfDicts is invalid type")
+    	raise
 
 
 # this function will return a dictionary from a JSON file located at pathname.
