@@ -1,7 +1,13 @@
+import os
+import sys
+script_dir = os.path.dirname(__file__)
+mymodule_dir = os.path.join(script_dir, '..', 'models')
+sys.path.append(mymodule_dir)
+
 # import models.database as db
 from datetime import datetime
-from .data import *
-from models.database import addProvider
+from data import *
+from database import addProvider
 
 
 class ManagerControl:

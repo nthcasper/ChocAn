@@ -1,5 +1,9 @@
-import datetime
-#import manager.py
+import os
+import sys
+script_dir = os.path.dirname(__file__)
+mymodule_dir = os.path.join(script_dir, '..', 'controllers')
+sys.path.append(mymodule_dir)
+import manager_controller as mc
 
 '''Displays the user options'''
 def main_menu():
@@ -64,7 +68,7 @@ def updateProviders():
 if __name__ == '__main__':
     main_menu()
     choice = int(input("Please enter choice: "))
-    while choice != 3:
+    while choice != 7:
         if choice == 1:
             endOfWeek()
         elif choice == 2:
@@ -79,5 +83,9 @@ if __name__ == '__main__':
             updateProviders()
         else:
             print("Invalid Choice.")
+
+        main_menu()
+        choice = int(input("Please enter choice: "))
+
     
     print("Shutting of terminal.")
