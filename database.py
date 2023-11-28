@@ -57,9 +57,9 @@ def getJSONDict(pathname):
             dictionary = json.load(file)
             print(type(dictionary))
             file.close()
-            if (type(dictionary) != dict):
-                raise ValueError
-            return dictionary
+        if (type(dictionary) != dict):
+            raise ValueError
+        return dictionary
     except IOError:
         print("ERROR: file not found")
         raise
@@ -121,6 +121,7 @@ def checkServiceCode(serviceCode):
         return False
 
 
+
 # this function adds a dict that represents the member to the member registry file. If the dict is not a valid member
 # dict, it raises a TypeError. If a member with that ID already exists in the database, then it raises a ValueError
 def addMember(memberDict):
@@ -129,7 +130,7 @@ def addMember(memberDict):
             raise TypeError
         memberList = getJSONListOfDicts(memRegPath)
         for member in memberList:
-            if member['Id'] == memberDict[Id]:
+            if member['Id'] == memberDict['Id']:
                 raise ValueError
         memberList.append(memberDict)
         createJSONListFile(memRegPath, memberList)
