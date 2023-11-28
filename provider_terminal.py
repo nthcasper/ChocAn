@@ -1,4 +1,10 @@
-#import provider.py
+import os
+import sys
+script_dir = os.path.dirname(__file__)
+mymodule_dir = os.path.join(script_dir, '..', 'controllers')
+sys.path.append(mymodule_dir)
+import provider_controller as pc
+
 
 '''Displays the main menu'''
 def main_menu():
@@ -8,10 +14,13 @@ def main_menu():
 
 '''Displays provider directory. Must be callable anywhere????'''
 def displayProviderDirectory():
-    print("Provider Directory!")
+    directory = pc.ProviderControl.getProviderDirectory()
+
+    print(directory)
 
 '''This will take user input and pass it to provider.py'''
 def createServiceRecord():
+    '''
     memberid = input()
     if checkmemberid(memberid) == False:
         return False
@@ -39,6 +48,7 @@ def createServiceRecord():
     }
 
     return verifyAllData(userDict)
+    '''
 
 
 '''Placeholder for provider.py function'''
@@ -47,11 +57,7 @@ def login(providerID):
 
 
 if __name__ == '__main__':
-    '''Does not allow the user to move on until a valid id is given.'''
     while (login(input("Please enter your Provider ID: "))):
-        #Should this be an if or a while?
-        #An if would quit on fail. 
-        #A while would continue until success.
         print("Invalid Provider ID.")
 
     main_menu()
