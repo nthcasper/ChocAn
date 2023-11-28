@@ -1,11 +1,13 @@
-import os
+import datetime
+import database as db  # im not sure how we are going to change this yet
+import __init__
+'''import os
 import sys
 script_dir = os.path.dirname(__file__)
 mymodule_dir = os.path.join(script_dir, '..', 'models')
-sys.path.append(mymodule_dir)
-import database as db  # im not sure how we are going to change this yet
-# from models import database as db #im not sure how we are going to change this yet
-import datetime
+sys.path.append(mymodule_dir)'''
+# from models import database as db
+# #im not sure how we are going to change this yet
 
 
 class ProviderControl:
@@ -13,7 +15,8 @@ class ProviderControl:
         # Initialize with file paths for the provider directory and service records
         # might need to move this around depending on how were are keeping the files, like in folders or not
         self.provider_directory = 'example_database\\provider_directory.json'
-        # self.service_records_file = 'example_database\\week_1-1_records.json' #might need to move this around depending on how were are keeping the files, like in folders or not
+        # self.service_records_file = 'example_database\\week_1-1_records.json'
+        # #might need to move this around depending on how were are keeping the files, like in folders or not
 
     def giveAuthorization(self, providerId):
         """
@@ -21,8 +24,8 @@ class ProviderControl:
         Checks if the provider ID is exactly 9 digits.
         Returns True if valid, False otherwise.
         """
-        if len(providerId) != 9 or not providerId.isdigit():
-            return False
+        '''if len(providerId) != 9 or not providerId.isdigit():
+            return False'''
         return db.checkProviderID(providerId)
 
     def messageMemberId(self, memberId):
@@ -30,8 +33,8 @@ class ProviderControl:
         Check the status of member ID and returns a status message.
         Possible return statuses are "Valid", "Invalid", and "Suspended".
         """
-        if len(memberId) != 9 or not memberId.isdigit():
-            return "Invalid"  # Member ID must be a 9-digit number
+        '''if len(memberId) != 9 or not memberId.isdigit():
+            return "Invalid"  # Member ID must be a 9-digit number'''
 
         memberStatus = db.checkMemberID(memberId)
         if memberStatus:
