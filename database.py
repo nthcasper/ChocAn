@@ -185,7 +185,9 @@ def deleteMember(ID):
         print("ERROR: ID is not an int")
         raise
     except ValueError:
-        print("ERROR: Ivalid member ID")
+        print("ERROR: Invalid member ID")
+				raise
+
 
 
 # this function deletes a provider from the provider registration file. It takes a valid provider ID, and gives a ValueError if
