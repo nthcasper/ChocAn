@@ -1,7 +1,6 @@
-import controllers
-import models.database as db
 from data import *
 from datetime import datetime
+from database import *
 
 
 # import models.database as db
@@ -12,14 +11,14 @@ class ManagerControl:
         pass
 
     def makeDict(self, dataObj):
-        print(db.provDirPath)
+        print(provDirPath)
         dataDict = dict(name=dataObj.name, Id=dataObj.Id, address=dataObj.address,
                         city=dataObj.city, state=dataObj.state, zipcode=dataObj.zipcode)
         return dataDict
 
     def addProvider(self, providerObj):
         providerDict = self.makeDict(providerObj)
-        db.addProvider(providerDict)
+        addProvider(providerDict)
 
     # this obj will have things like name, number etc..
     def addMember(self, memberObj):
@@ -27,19 +26,19 @@ class ManagerControl:
         return database.add(memberObj)
 
     def editMember(self, memberId, memberObj):
-        memDict = db.getJSONListOfDicts(db.memRegPath)
+        memDict = getJSONListOfDicts(memRegPath)
         for mem in memDict:
             if (mem['Id'] == memberId):
                 mem.update(memberObj)
-        db.createJSONListFile(db.provRegPath, memDict)
+        createJSONListFile(provRegPath, memDict)
 
     def editProvider(self, providerId, providerObj):
-        print(db.provRegPath)
-        provDict = db.getJSONListOfDicts(db.provRegPath)
+        print(provRegPath)
+        provDict = getJSONListOfDicts(provRegPath)
         for prov in provDict:
             if (prov['Id'] == providerId):
                 prov.update(providerObj)
-        db.createJSONListFile(db.provRegPath, provDict)
+        createJSONListFile(provRegPath, provDict)
 
     def removeProvider():
         pass
