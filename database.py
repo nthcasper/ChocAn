@@ -57,9 +57,9 @@ def getJSONDict(pathname):
             dictionary = json.load(file)
             print(type(dictionary))
             file.close()
-            if (type(dictionary) != dict):
-                raise ValueError
-            return dictionary
+        if (type(dictionary) != dict):
+            raise ValueError
+        return dictionary
     except IOError:
         print("ERROR: file not found")
         raise
@@ -76,9 +76,9 @@ def getJSONListOfDicts(pathname):
             listOfDicts = json.load(file)
             print(type(listOfDicts))
             file.close()
-            if (type(listOfDicts) != list):
-                raise ValueError
-            return listOfDicts
+        if (type(listOfDicts) != list):
+            raise ValueError
+        return listOfDicts
 
     except IOError:
         print("ERROR: file not found")
@@ -121,6 +121,7 @@ def checkServiceCode(serviceCode):
         return False
 
 
+
 # this function adds a dict that represents the member to the member registry file. If the dict is not a valid member
 # dict, it raises a TypeError. If a member with that ID already exists in the database, then it raises a ValueError
 def addMember(memberDict):
@@ -129,7 +130,7 @@ def addMember(memberDict):
             raise TypeError
         memberList = getJSONListOfDicts(memRegPath)
         for member in memberList:
-            if member['Id'] == memberDict[Id]:
+            if member['Id'] == memberDict['Id']:
                 raise ValueError
         memberList.append(memberDict)
         createJSONListFile(memRegPath, memberList)
@@ -184,7 +185,9 @@ def deleteMember(ID):
         print("ERROR: ID is not an int")
         raise
     except ValueError:
-        print("ERROR: Ivalid member ID")
+        print("ERROR: Invalid member ID")
+        raise
+
 
 
 # this function deletes a provider from the provider registration file. It takes a valid provider ID, and gives a ValueError if
