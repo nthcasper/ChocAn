@@ -1,5 +1,4 @@
-import __init__
-import models.database as db
+import database as db
 from data import *
 from datetime import datetime
 

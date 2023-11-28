@@ -1,13 +1,5 @@
 import datetime
-import database as db  # im not sure how we are going to change this yet
-import __init__
-'''import os
-import sys
-script_dir = os.path.dirname(__file__)
-mymodule_dir = os.path.join(script_dir, '..', 'models')
-sys.path.append(mymodule_dir)'''
-# from models import database as db
-# #im not sure how we are going to change this yet
+import database as db
 
 
 class ProviderControl:
