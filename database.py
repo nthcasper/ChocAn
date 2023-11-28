@@ -76,9 +76,9 @@ def getJSONListOfDicts(pathname):
             listOfDicts = json.load(file)
             print(type(listOfDicts))
             file.close()
-            if (type(listOfDicts) != list):
-                raise ValueError
-            return listOfDicts
+        if (type(listOfDicts) != list):
+            raise ValueError
+        return listOfDicts
 
     except IOError:
         print("ERROR: file not found")
