@@ -1,16 +1,11 @@
 # This file contains functions that interact with files in the database
 
 import json
-import os
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
 
-provRegPath = os.path.join(
-    current_dir, "..", "database", "provider_registry.json")
-provDirPath = os.path.join(
-    current_dir, "..", "database", "provider_directory.json")
-memRegPath = os.path.join(
-    current_dir, "..", "database", "member_registry.json")
+provRegPath = "database/provider_registry.json"
+provDirPath = "database/provider_directory.json"
+memRegPath = "database/member_registry.json"
 
 
 # this function will create a file consisting of a single JSON object at a given path.
@@ -30,8 +25,6 @@ def createJSONFile(pathname, dictionary):
     except TypeError:
         print("ERROR: pathname or dictionary are invalid types")
         raise
-    finally:
-        print("bruh")
 
 
 # this function will create a file consisting of a list of JSON objects at a given path
