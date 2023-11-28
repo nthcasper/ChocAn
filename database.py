@@ -186,7 +186,7 @@ def deleteMember(ID):
         raise
     except ValueError:
         print("ERROR: Invalid member ID")
-				raise
+        raise
 
 
 
