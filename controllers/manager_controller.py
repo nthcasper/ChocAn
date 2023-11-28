@@ -1,4 +1,4 @@
-import __init__
+import controllers
 import models.database as db
 from data import *
 from datetime import datetime
