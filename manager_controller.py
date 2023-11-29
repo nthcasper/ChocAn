@@ -3,9 +3,6 @@ from datetime import datetime
 from database import *
 
 
-# import models.database as db
-
-
 class ManagerControl:
     def __init__(self):
         pass
@@ -40,14 +37,17 @@ class ManagerControl:
                 prov.update(providerObj)
         createJSONListFile(provRegPath, provDict)
 
-    def removeProvider():
-        pass
+    def removeProvider(self, providerId):
+        deleteProvider(providerId)
 
-    def removeMember():
-        pass
+    def removeMember(self, memberId):
+        deleteMember(memberId)
 
     def viewMemberReport(memberFile):
         return database.memberReport(memberId)
 
     def viewProviderReport(providerFile):
         return database.providerReport(providerId)
+
+
+
