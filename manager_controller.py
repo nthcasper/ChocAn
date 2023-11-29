@@ -48,6 +48,3 @@ class ManagerControl:
 
     def viewProviderReport(providerFile):
         return database.providerReport(providerId)
-
-
-
