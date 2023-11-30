@@ -11,7 +11,7 @@ class TestProviderControl(unittest.TestCase):
     # authenticataion tests-----------------------------------------------
     def test_giveAuthorization_valid(self):
         # Test giveAuthorization with a valid provider ID
-        provider_id = "222222222"
+        provider_id = "111333111"
         result = self.provider_control.giveAuthorization(provider_id)
         db_result = checkProviderID(provider_id)
         self.assertTrue(result)
@@ -44,7 +44,7 @@ class TestProviderControl(unittest.TestCase):
 
     def test_messageMemberId_valid(self):
         # Test messageMemberId with a valid member ID
-        valid_member_id = "987654321"  # valid member ID from  database
+        valid_member_id = "111333111"  # valid member ID from  database
         result = self.provider_control.messageMemberId(valid_member_id)
         self.assertEqual(result, "Valid")
 
@@ -57,7 +57,7 @@ class TestProviderControl(unittest.TestCase):
 
     def test_messageMemberId_suspended(self):
         # test messageMemberId with a suspended Member ID (customize this based on data)
-        suspended_member_id = "999999999"  # suspended member ID from  database
+        suspended_member_id = "396352333"  # suspended member ID from  database
         result = self.provider_control.messageMemberId(suspended_member_id)
         self.assertEqual(result, "Suspended")
 
