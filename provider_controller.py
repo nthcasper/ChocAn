@@ -77,7 +77,7 @@ class ProviderControl:
 
         """
         try:
-            providerDirectory = getJSONListOfDicts(self.providerDirectory)
+            providerDirectory = db.getJSONListOfDicts(self.providerDirectory)
             # Convert serviceCode to integer for comparison
             serviceCode = int(serviceCode)
             # Check if any service in the directory matches the provided service code
