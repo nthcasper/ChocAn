@@ -1,11 +1,11 @@
 import datetime
 import database as db  # im not sure how we are going to change this yet
-import __init__
-'''import os
+# import __init__
+import os
 import sys
 script_dir = os.path.dirname(__file__)
-mymodule_dir = os.path.join(script_dir, '..', 'models')
-sys.path.append(mymodule_dir)'''
+mymodule_dir = os.path.join(script_dir)
+sys.path.append(mymodule_dir)
 # from models import database as db
 # #im not sure how we are going to change this yet
 
@@ -69,6 +69,25 @@ class ProviderControl:
             if service['code'] == serviceCode and str(service['fee']) == serviceFee:
                 return True
         return False
+
+    def verifyServiceCode(self, serviceCode):
+        """
+        Verifies if the provided service fee matches the service code.
+        Returns True if the service code is valid, False otherwise.
+
+        """
+        try:
+            providerDirectory = getJSONListOfDicts(self.providerDirectory)
+            # Convert serviceCode to integer for comparison
+            serviceCode = int(serviceCode)
+            # Check if any service in the directory matches the provided service code
+            return any(service['code'] == serviceCode for service in providerDirectory)
+        except ValueError:
+            # If SeerviceCode is not an integer, return False
+            return False
+        except Exception as e:
+            # Handle other exceptions such as file not found or JSON errors
+            return False
 
     def createServiceRecord(self, providerId, memberId, serviceCode, dateOfService, comments):
         """
