@@ -1,5 +1,5 @@
 
-# import __init__
+import __init__
 import manager_controller as mc
 import data
 
@@ -9,20 +9,24 @@ import data
 def main_menu():
     print("1. End of Week")
     print("2. Generate ETF Report")
-    print("3. Generate Provider Reports")
-    print("4. Generate Member Reports")
-    print("5. Update Member Registry")
-    print("6. Update Provider Registry")
-    print("7. Turn Off Terminal")
+    print("3. Generate Member Reports")
+    print("4. Generate Provider Reports")
+    print("5. Add Members")
+    print("6. Update Member")
+    print("7. Remove Member")
+    print("8. Add Provider")
+    print("9. Update Provider")
+    print("10. Remove Provider")
+    print("11. Turn Off Terminal")
 
 
 '''Calls the following three functions.'''
 
 
 def endOfWeek():
-    # Should this call an endOfWeek function or just call each report function?
-    # Depends on how the manager.py team wants to do.
-    pass
+    etfReport()
+    memberReport()
+    providerReport()
 
 
 '''Placeholder for manager.py function'''
@@ -36,77 +40,84 @@ def etfReport():
 
 
 def memberReport():
-    pass
+    print(mc.ManagerControl().viewMemberReport(data.BasicData().getId()))
+    # Something should be returned here. At the very least a T/F.
 
 
 '''Takes in a provider id. Calls manager.py function'''
 
 
 def providerReport():
-    pass
+    print(mc.ManagerControl().viewProviderReport(data.BasicData().getId()))
+    # Something should be returned here. At the very least a T/F.
 
 
-'''Take member info and call manager.py function.'''
+def addMember():
+    print(mc.ManagerControl().addMember(data.BasicData().createBasicData()))
+    # Something should be returned here. At the very least a T/F.
 
 
-def updateMembers():
-    # Should this be split up into three functions, or let manager.py figure it out?
-    # Example: the user could enter an existing member id along with data to be changed.
-    # Example: the user could enter a new member id along with data to be added.
-    # Example: the user could enter an existed member id and empty data to delete member.
-    # --Places more effort on manager.py team.--
-
-    name = input("name: ")
-    ID = input("name: ")
-    address = input("name: ")
-    city = input("name: ")
-    state = input("name: ")
-    zipcode = input("name: ")
-
-    # return memberUpdate(name, number, address, city, state, zipcode)
+def updateMember():
+    member = data.BasicData().createBasicData()
+    print(mc.ManagerControl().editMember(member.Id, member))
+    # Something should be returned here. At the very least a T/F.
 
 
-'''Take provider info and call manager.py function.'''
+def removeMember():
+    print(mc.ManagerControl().removeMember(data.BasicData().getId()))
+    # Something should be returned here. At the very least a T/F.
 
 
-def updateProviders():
-    # Should this be split up into three functions, or let manager.py figure it out?
-
-    name = input("name: ")
-    number = input("name: ")
-    address = input("name: ")
-    city = input("name: ")
-    state = input("name: ")
-    zipcode = input("name: ")
-
-    # return providerUpdate(name, number, address, city, state, zipcode)
+def addProvider():
+    print(mc.ManagerControl().addProvider(data.BasicData().createBasicData()))
+    # Something should be returned here. At the very least a T/F.
 
 
-# if __name__ == '__main__':
-#     main_menu()
-#     choice = int(input("Please enter choice: "))
-#     while choice != 7:
-#         if choice == 1:
-#             endOfWeek()
-#         elif choice == 2:
-#             etfReport()
-#         elif choice == 3:
-#             memberReport()
-#         elif choice == 4:
-#             providerReport()
-#         elif choice == 5:
-#             updateMembers
-#         elif choice == 6:
-#             updateProviders()
-#         else:
-#             print("Invalid Choice.")
+def updateProvider():
+    provider = data.BasicData().createBasicData()
+    print(mc.ManagerControl().editProvider(provider.Id, provider))
+    # Something should be returned here. At the very least a T/F.
 
-#         main_menu()
-#         choice = int(input("Please enter choice: "))
 
-#     print("Shutting of terminal.")
+def removeProvider():
+    print(mc.ManagerControl().removeProvider(data.BasicData().getId()))
+    # Something should be returned here. At the very least a T/F.
 
-info = data.BasicData()
-manager = mc.ManagerControl()
-myData = info.createBasicData()
-manager.addProvider(myData)
+
+if __name__ == '__main__':
+    choice = 1
+    while choice != 11:
+        try:
+            main_menu()
+            choice = int(input("Please enter choice: "))
+
+            if choice == 1:
+                endOfWeek()
+            elif choice == 2:
+                etfReport()
+            elif choice == 3:
+                memberReport()
+            elif choice == 4:
+                providerReport()
+            elif choice == 5:
+                addMember()
+            elif choice == 6:
+                updateMember()
+            elif choice == 7:
+                removeMember()
+            elif choice == 8:
+                addProvider()
+            elif choice == 9:
+                updateProvider()
+            elif choice == 10:
+                removeMember()
+            elif choice == 11:
+                pass
+            else:
+                print("Invalid Choice.")
+
+        # Intended to catch letters/characters.
+        except ValueError:
+            print("Invalid Choice.")
+
+    print("Shutting off terminal.")
